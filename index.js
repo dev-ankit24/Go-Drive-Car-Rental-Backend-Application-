@@ -5,7 +5,7 @@ const app = express()
 app.set("view engine","hbs")
 app.use(express.static("./views/public"))
 
-hbs.registerPartials("./views/partial")
+hbs.registerPartials("./views/partials")
 
 app.get("/",(req,res)=>{
     res.render("index")
