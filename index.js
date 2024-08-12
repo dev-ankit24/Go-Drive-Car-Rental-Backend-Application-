@@ -38,4 +38,8 @@ app.get("/testimonials",(req,res)=>{
 app.get("/contact",(req,res)=>{
     res.render("contact")
 })
+
+app.get("/*",(req,res)=>{
+    res.render("404",{title:"404 Page Not Found"})
+})
 app.listen(8000, console.log("server is run http://localhost:8000"))
