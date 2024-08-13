@@ -12,31 +12,31 @@ app.get("",(req,res)=>{
 })
 
 app.get("/about",(req,res)=>{
-    res.render("aboutPage",{title:"About Page"})
+    res.render("aboutPage",{title:"About Us"})
 })
 
 app.get("/service",(req,res)=>{
-    res.render("servicePage",{title:"Service Page"})
+    res.render("servicePage",{title:"Services"})
 })
 
 app.get("/feature",(req,res)=>{
-    res.render("featurePage",{title:"Feature Page"})
+    res.render("featurePage",{title:"Features"})
 })
 
 app.get("/cars",(req,res)=>{
-    res.render("carsPage",{title:"Car Page"})
+    res.render("carsPage",{title:"Cars"})
 })
 
 app.get("/team",(req,res)=>{
-    res.render("teamPage",{title:"Team Page"})
+    res.render("teamPage",{title:"Teams"})
 })
 
 app.get("/testimonials",(req,res)=>{
-    res.render("testimonialPage",{title:"Testimonials Page"})
+    res.render("testimonialPage",{title:"Testimonials "})
 })
 
 app.get("/contact",(req,res)=>{
-    res.render("contact",{title:"Contact Page"})
+    res.render("contact",{title:"Contact Us"})
 })
 
 app.get("/*",(req,res)=>{
