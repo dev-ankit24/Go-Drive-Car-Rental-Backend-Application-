@@ -2,13 +2,13 @@ const express=require("express")
 const hbs = require("hbs")
 const app = express()
 
-const router=require("./routes/routes")
 
 app.set("view engine","hbs")
 app.use(express.static("./views/public"))
 
 hbs.registerPartials("./views/partials")
 
+const router=require("./routes/routes")
 app.use("",router)
 
 app.listen(8000, console.log("server is run http://localhost:8000"))
