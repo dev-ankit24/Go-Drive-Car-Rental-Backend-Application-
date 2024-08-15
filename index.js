@@ -4,7 +4,7 @@ const app = express()
 
 
 app.set("view engine","hbs")
-app.use(express.static("./views/public"))
+app.use(express.static("./public"))
 
 hbs.registerPartials("./views/partials")
 
