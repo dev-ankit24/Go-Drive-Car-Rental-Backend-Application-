@@ -5,12 +5,11 @@ const {homePage,aboutPage,servicePage,carsPage,contact,featurePage,teamPage,test
 // Admin Routes Controller
 const AdminRouter=require("./adminRoutes/adminRoutes")
 
-router.get("",homePage)
+router.get("", homePage)
 router.get("/about",aboutPage)
 router.get("/service",servicePage)
 router.get("/feature",featurePage)
 router.get("/cars",carsPage)
-router.get("/team",teamPage)
 router.get("/testimonials",testimonialPage)
 router.get("/contact",contact)
 

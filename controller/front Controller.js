@@ -1,4 +1,4 @@
-function homePage(req,res){
+ function homePage(req,res){
     res.render("index")
 }
 
@@ -18,9 +18,9 @@ function carsPage(req,res){
     res.render("carsPage",{title:"Cars"})
 }
 
-function teamPage(req,res){
-    res.render("teamPage",{title:"Teams"})
-}
+// function teamPage(req,res){
+//     res.render("teamPage",{title:"Teams"})
+// }
 
 function testimonialPage(req,res){
     res.render("testimonialPage",{title:"Testimonials"})
@@ -41,7 +41,7 @@ module.exports={
     contact,
     featurePage,
     servicePage,
-    teamPage,
+    // teamPage,
     testimonialPage,
     eroor404
 }
