@@ -8,8 +8,11 @@ app.use(express.static("./public"))
 
 hbs.registerPartials("./views/partials")
 
+require("./helpers/index.js")
+ 
 const router=require("./routes/routes")
 app.use("",router)
+
 
 app.listen(8000, console.log("server is run http://localhost:8000"))
 
