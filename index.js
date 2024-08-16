@@ -9,6 +9,7 @@ app.use(express.static("./public"))
 hbs.registerPartials("./views/partials")
 
 require("./helpers/index.js")
+require("./db_connect.js")
  
 const router=require("./routes/routes")
 app.use("",router)
