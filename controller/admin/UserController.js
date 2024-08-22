@@ -1,5 +1,7 @@
-function adminUserPage(req,res){
-    res.render("admin/user/index",{title:"User Home "})
-
+function home(req,res){
+    res.render("admin/user/index",{title:"User Home "} )
 }
-module.exports={ adminUserPage}
+function create(req, res){
+    res.render("admin/user/create",{title:"User", errorMessage:{}})
+}
+module.exports={home,create}

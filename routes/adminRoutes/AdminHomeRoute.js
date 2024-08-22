@@ -1,7 +1,7 @@
 const AdminHomeRouter=require("express").Router()
 
-const {homePage}=require("../../controller/admin/homeController")
+const {home} =require("../../controller/admin/homeController")
 
-AdminHomeRouter.get("/",homePage)
+AdminHomeRouter.get("/",home)
 
 module.exports =AdminHomeRouter

@@ -1,0 +1,28 @@
+{{>header}}
+<title>Cental - Car Rent | User Create Section</title>
+{{>navbar}}
+{{>hero}}
+<div class="container-fluid my-3">
+  <div class="row">
+    <div class="col-md-3">
+    {{>sidebar}}
+  </div>
+   <div class="col-md-9">
+    <h5 class="bg-primary text-center text-light p-2">Users <a href="/admin/users"><i class="fa fa-backward text-light float-end"></i></a></h5>
+    <form action="/admin/create/store" method="post">
+     <div class="row">
+      <div class="col-md-6">
+        <input type="text" name="name" placeholder="Full Name"  class=" form-control {{#if errorMessage.name}} border-danger {{else}}border-primary {{/if}}" >
+        {{#if errorMessage.name}} 
+        <p class="text-danger">{{errorMessage.name}}</p>
+        {{/if}}
+      </div>
+     </div>
+    </form>
+
+    </div>
+   </div>
+  </div>
+</div>
+  </div>
+{{>footer}}

@@ -1,7 +1,8 @@
 const AdminUserRouter=require("express").Router()
 
-const {adminUserPage}=require("../../controller/admin/UserController")
+const {home,create}=require("../../controller/admin/UserController")
 
-AdminUserRouter.get("/",adminUserPage)
+AdminUserRouter.get("/",home)
+AdminUserRouter.get("/create",create)
 
 module.exports =AdminUserRouter

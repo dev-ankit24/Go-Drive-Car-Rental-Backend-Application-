@@ -1,5 +1,5 @@
-function homePage(req,res){
+function home(req,res){
     res.render("admin/home/index",{title:"Admin Home"})
 }
 
-module.exports={homePage}
+module.exports={home}
