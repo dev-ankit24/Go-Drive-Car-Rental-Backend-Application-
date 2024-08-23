@@ -15,18 +15,25 @@ schema
 
 const User  = require("../../models/User")
 
-function home(req,res){
-    res.render("admin/user/index",{title:"User Home "} )
+async function home(req,res){
+  try {
+    let data= await User.find().sort({_id:-1})
+    res.render("admin/user/index",{title:"User Home ",data:data} )
+
+  } catch (error) {
+     console.log(error);
+      
+  }
 }
 function create(req, res){
     res.render("admin/user/create",{title:"User Create", error:{}})
 }
 
+//  store data in mongodb and validations
 async function store(req,res) {
-   
     try {
+        var data= new User(req.body)
        if(req.body.password === req.body.cpassword){
-         var data= new User(req.body)
         if(schema.validate(req.body.password)){
             await data.save()
             res.redirect("/admin/users")
@@ -51,11 +58,23 @@ async function store(req,res) {
     } catch (error) {
         console.log(error );
         errorMessage={}
+        error.keyValue && error.keyValue.username?(errorMessage["username"]="UserName is Already Taken"):""
+        error.keyValue && error.keyValue.email?(errorMessage["email"]="Email is Already Taken"):""
+        error.keyValue&& error.keyValue.phone?(errorMessage["phone"]="Phone is Already Taken"):""
         error.errors?.name ?(errorMessage["name"]=error.errors?.name.message):""
-        error.errors?.username ?(errorMessage["username"]=error.errors?.username.message):""
-        error.errors?.email? (errorMessage["email"]=error.errors?.email.message):""
-        error.errors?.phone? (errorMessage["phone"]=error.errors?.phone.message):""
         res.render("admin/user/create",{errorMessage:errorMessage, data:data})       
     }
 }
-module.exports={home,create, store}
+
+//  delete user data
+async function remove(req,res){
+    try {
+        let data = await User.findOne({_id:req.params._id})
+       await data.deleteOne()
+        res.redirect("/admin/users")
+    } catch (error) {
+        console.log(error);
+        res.redirect("/admin/users")
+    }
+}
+module.exports={home,create, store, remove}

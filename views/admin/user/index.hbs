@@ -5,15 +5,41 @@
 <div class="container-fluid my-3">
   <div class="row">
     <div class="col-md-3">
-    {{>sidebar}}
-  </div>
-   <div class="col-md-9">
-    <h5 class="bg-primary text-center text-light p-2">Users <a href="/admin/users/create"><i class="fa fa-plus text-light float-end"></i></a></h5>
-    <div class="row">
+      {{>sidebar}}
+    </div>
+    <div class="col-md-9">
+      <h5 class="bg-primary text-center text-light p-2">Users <a href="/admin/users/create"><i
+            class="fa fa-plus text-light float-end"></i></a></h5>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>UserName</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each data}}
+            <tr>
+              <td>{{_id}}</td>
+              <td>{{name}}</td>
+              <td>{{username}}</td>
+              <td>{{email}}</td>
+              <td>{{phone}}</td>
+              <td><a href="/admin/users/edit/{{_id}}"><i class="fa fa-edit"></i></a></td>
+              <td><a href="/admin/users/delete/{{_id}}"><i class="fa fa-trash text-danger"></i></a></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
 
     </div>
-   </div>
   </div>
 </div>
-  </div>
+</div>
+</div>
 {{>footer}}
