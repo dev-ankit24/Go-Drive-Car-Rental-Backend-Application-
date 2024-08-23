@@ -25,11 +25,13 @@ async function home(req,res){
       
   }
 }
+
+// create data and store data in mongodb and validations
+
 function create(req, res){
-    res.render("admin/user/create",{title:"User Create", error:{}})
+    res.render("admin/user/create",{title:"User Create", data:{}, error:{}})
 }
 
-//  store data in mongodb and validations
 async function store(req,res) {
     try {
         var data= new User(req.body)
@@ -77,4 +79,42 @@ async function remove(req,res){
         res.redirect("/admin/users")
     }
 }
-module.exports={home,create, store, remove}
+
+// ------------------------------------------------------------------------
+//  edit or update data 
+
+async function edit(req, res){
+    try {
+        let data = await User.findOne({_id:req.params._id})
+        res.render("admin/user/edit",{title:" Admin User Edit Section ", data:data , error:{}})
+    } catch (error) {
+        console.log(error);
+        res.redirect("/admin/users")
+        
+    }
+}
+ 
+async function update(req,res){
+    try {
+        var data= await User.findOne({_id:req.params._id})
+        data.name= req.body.name
+        data.username=req.body.username
+        data.email= req.body.email
+        data.phone= req.body.phone
+        data.role = req.body.role
+        await data.save()
+         res.redirect("/admin/users")
+    } catch (error) {
+        errorMessage={}
+        console.log(error);
+        error.keyValue && error.keyValue.name?(errorMessage["name"]="Name is already taken") :""
+        error.keyValue && error.keyValue.username?(errorMessage["username"]="username is already taken") :""
+        error.keyValue && error.keyValue.email?(errorMessage["email"]="email is already taken") :""
+        error.keyValue && error.keyValue.phone?(errorMessage["phone"]="phone is already taken") :""
+        render("admin/user/edit",{errorMessage:errorMessage , data:data })
+        
+        
+    }
+
+}
+module.exports={home,create, store, remove , edit,update}
