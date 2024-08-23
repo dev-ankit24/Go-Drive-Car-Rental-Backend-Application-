@@ -3,7 +3,7 @@ const AdminUserRouter=require("express").Router()
 
 const encoder = bodyParser.urlencoded()
 
-const {home,create, store, remove ,edit,update}=require("../../controller/admin/UserController")
+const {home,create, store, remove ,edit,update }=require("../../controller/admin/UserController")
 
 
 AdminUserRouter.get("/",home)

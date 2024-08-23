@@ -44,6 +44,7 @@ async function store(req,res) {
         }
         else{
             res.render("admin/user/create",{
+                title:"User Create",
                 errorMessage:{
                     password:"Password length must be 1 character 1 digit 1 special character "
                 },data:data
@@ -52,6 +53,7 @@ async function store(req,res) {
        }
        else{
         res.render("admin/user/create",{
+            title:"User Create",
             errorMessage:{
                 password:"Password or Confirm do not Matched "
             },data:data
@@ -64,7 +66,7 @@ async function store(req,res) {
         error.keyValue && error.keyValue.email?(errorMessage["email"]="Email is Already Taken"):""
         error.keyValue&& error.keyValue.phone?(errorMessage["phone"]="Phone is Already Taken"):""
         error.errors?.name ?(errorMessage["name"]=error.errors?.name.message):""
-        res.render("admin/user/create",{errorMessage:errorMessage, data:data})       
+        res.render("admin/user/create",{errorMessage:errorMessage, data:data ,title:"User Create"})       
     }
 }
 
@@ -111,7 +113,7 @@ async function update(req,res){
         error.keyValue && error.keyValue.username?(errorMessage["username"]="username is already taken") :""
         error.keyValue && error.keyValue.email?(errorMessage["email"]="email is already taken") :""
         error.keyValue && error.keyValue.phone?(errorMessage["phone"]="phone is already taken") :""
-        render("admin/user/edit",{errorMessage:errorMessage , data:data })
+        render("admin/user/edit",{errorMessage:errorMessage , data:data ,title:"User Create"})
         
         
     }

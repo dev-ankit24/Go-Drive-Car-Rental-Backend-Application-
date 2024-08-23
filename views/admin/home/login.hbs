@@ -4,6 +4,26 @@
 {{>hero}}
 <div class="container-fluid my-3">
   <div class="row">
+<form action="/admin/home/loginStore" method="post" >
+<h5 class="bg-primary text-center text-light p-2 col-md-10 col-sm-10 m-auto mb-2"> Admin Login </h5>
+  <div class="col-md-10 sm-10 m-auto mb-2">
+    <label >Email address</label>
+    <input type="email" class="form-control  border-primary border-2" name="email"  aria-describedby="emailHelp">
+  </div>
+<div class="col-md-10 sm-10 m-auto mb-2">
+    <label >Password</label>
+    <input type="password" class="form-control border-primary border-2"  name="password">
+  </div>
+  <div class="col-md-10 sm-10 m-auto form-check mb-2">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <div class="col-md-10 sm-10 m-auto mb-10">
+
+  <button type="submit" class="btn btn-primary w-100  ">Login</button>
+  </div>
+</form>
+    
 
 </div>
   </div>
