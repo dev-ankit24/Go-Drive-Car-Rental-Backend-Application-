@@ -20,8 +20,8 @@
             {{/if}}
           </div>
           <div class="col-md-6 mt-3">
-            <input type="text" name="username" placeholder="UserName"
- value="{{data.username}}"              class=" form-control {{#if errorMessage.username}} border-danger {{else}}border-primary {{/if}}">
+            <input type="text" name="username" placeholder="UserName" value="{{data.username}}"
+              class=" form-control {{#if errorMessage.username}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.username}}
             <p class="text-danger">{{errorMessage.username}}</p>
             {{/if}}
@@ -30,14 +30,14 @@
 
         <div class="row">
           <div class="col-md-6 mt-3">
-            <input type="email" name="email" placeholder="Enter  Email Address"  value="{{data.email}}"
+            <input type="email" name="email" placeholder="Enter  Email Address" value="{{data.email}}"
               class=" form-control {{#if errorMessage.email}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.email}}
             <p class="text-danger">{{errorMessage.email}}</p>
             {{/if}}
           </div>
           <div class="col-md-6 mt-3">
-            <input type="number" name="phone" placeholder="Enter Phone Number"  value="{{data.phone}}"
+            <input type="number" name="phone" placeholder="Enter Phone Number" value="{{data.phone}}"
               class=" form-control {{#if errorMessage.phone}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.phone}}
             <p class="text-danger">{{errorMessage.phone}}</p>
@@ -47,35 +47,42 @@
 
         <div class="row">
           <div class="col-md-6 mt-3">
-            <input type="password" name="password" placeholder="Enter password"  value="{{data.password}}"
+            <input type="password" name="password" placeholder="Enter password" value="{{data.password}}"
               class=" form-control {{#if errorMessage.password}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.passsword}}
             <p class="text-danger">{{errorMessage.password}}</p>
             {{/if}}
           </div>
           <div class="col-md-6 mt-3">
-            <input type="password" name="cpassword" placeholder="Enter Confirm Password "  value="{{data.cpassword}}"
+            <input type="password" name="cpassword" placeholder="Enter Confirm Password " value="{{data.cpassword}}"
               class=" form-control border-primary ">
           </div>
         </div>
 
-         <div class="row">
+        <div class="row">
           <div class="col-md-6 mt-3">
-            <select name="role"  
-              class=" form-select border-primary">
+            <select name="role" class=" form-select border-primary">
               <option {{checkRole data.role "Admin" }}>Admin</option>
-              <option  {{checkRole data.role  "Super Admin" }}>Super Admin</option>
+              <option {{checkRole data.role "Super Admin" }}>Super Admin</option>
             </select>
-            
+
           </div>
         </div>
-    <div class="mt-3">
-      <button type="submit" class="btn btn-primary w-100 p-2">Create</button>
-    </div>
-    </form>
+        <div class="row  d-flex flex-row">
+          <div class="mt-3 d-flex">
+          <button type="submit" class="btn btn-primary  p-2">Create</button>
+        </div>
+        <div class="mt-3 d-flex">
+          <button type="submit" class="btn btn-primary p-2">Create</button>
+        </div>
+        </div>
+      
+         
 
+      </form>
+
+    </div>
   </div>
-</div>
 </div>
 </div>
 </div>
