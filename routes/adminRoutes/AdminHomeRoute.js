@@ -7,6 +7,6 @@ const {home,login, loginStore} =require("../../controller/admin/homeController")
 
 AdminHomeRouter.get("/",home)
 AdminHomeRouter.get("/login",login)
-AdminHomeRouter.post("/login", encoder,loginStore)
+AdminHomeRouter.post("/loginStore", encoder,loginStore)
 
 module.exports =AdminHomeRouter
