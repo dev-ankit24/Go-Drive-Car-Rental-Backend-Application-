@@ -2,9 +2,20 @@ const express=require("express")
 const hbs = require("hbs")
 const app = express()
 
+const session =require("express-session")
+require("dotenv").config()
+
 
 app.set("view engine","hbs")
 app.use(express.static("./public"))
+
+// session eexpress
+app.use(session({
+  secret: process.env.SESSION_SECRET_KEY,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 
 hbs.registerPartials("./views/partials")
 

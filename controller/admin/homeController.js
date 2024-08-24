@@ -17,16 +17,16 @@ function home(req,res){
          {password:req.body.password}
       ]})
       if(data){
-
+         req.session.login=true
+         req.session.name=data.name
+         req.session.userid=data.userid
+         res.redirect("/admin")
+      }
+      else{
+         res.render("admin/home/login",{title:"Admin Login"})
       }
    } catch (error) {
       console.log(error);
-      
-      res.render("admin/home/login",{
-         title:"Admin Login",
-         data:data,
-
-      })
    }
  }
 module.exports={home,login,loginStore}
