@@ -4,27 +4,22 @@
 {{>hero}}
 <div class="container-fluid my-3">
   <div class="row">
-<form action="/admin/home/loginStore" method="post" >
-<h5 class="bg-primary text-center text-light p-2 col-md-10 col-sm-10 m-auto mb-2"> Admin Login </h5>
-  <div class="col-md-10 sm-10 m-auto mb-2">
-    <label >UserName Or Email</label>
-    <input type="text" class="form-control  border-primary border-2" name="name"  aria-describedby="emailHelp">
+    <div class="col-md-10  col-sm-8 col-10 m-auto">
+      <h5 class="bg-primary text-center text-light p-2 mb-2"> Admin Login </h5>
+      <form action="/admin/login" method="post">
+        <div class="mb-3">
+          <input type="text" name="username" placeholder=" Enter UserName or Email"
+            class="form-control border-2 border-primary">
+        </div>
+        <div class="mb-3">
+          <input type="password" name="password" placeholder=" Enter Password"
+            class="form-control border-2 border-primary">
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary w-100"> Login</button>
+        </div>
+      </form>
+    </div>
   </div>
-<div class="col-md-10 sm-10 m-auto mb-2">
-    <label >Password</label>
-    <input type="password" class="form-control border-primary border-2"  name="password">
-  </div>
-  <div class="col-md-10 sm-10 m-auto form-check mb-2">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <div class="col-md-10 sm-10 m-auto mb-10">
-
-  <button type="submit" class="btn btn-primary w-100  ">Login</button>
-  </div>
-</form>
-    
-
 </div>
-  </div>
 {{>footer}}

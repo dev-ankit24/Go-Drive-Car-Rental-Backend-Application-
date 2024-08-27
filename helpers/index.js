@@ -1,8 +1,8 @@
 const hbs =require("hbs")
 
-hbs.registerHelper("isLogin", function(){
-    let login=localStorage.getItem("login") ?? false
-    return login;
+hbs.registerHelper("isLogin", function(session){
+    return session && session .login ? true: false
+
 })
 
 hbs.registerHelper("adminName",()=>{

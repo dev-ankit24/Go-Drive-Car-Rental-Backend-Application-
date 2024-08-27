@@ -55,7 +55,7 @@
                             <a href="/contact" class="nav-item nav-link">Contact</a>
                             <a href="/admin" class="nav-item nav-link">Admin</a>
                         </div>
-                        {{#if isLogin}}
+                        {{#if (isLogin session)}}
                         <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Ankit Kumar</a>
                         {{else}}
                         <a href="/admin/login" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>

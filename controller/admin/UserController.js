@@ -18,7 +18,7 @@ const User  = require("../../models/User")
 async function home(req,res){
   try {
     let data= await User.find().sort({_id:-1})
-    res.render("admin/user/index",{title:"User Home ",data:data} )
+    res.render("admin/user/index",{ session:req.session ,title:"User Home ",data:data} )
 
   } catch (error) {
      console.log(error);
@@ -29,7 +29,7 @@ async function home(req,res){
 // create data and store data in mongodb and validations
 
 function create(req, res){
-    res.render("admin/user/create",{title:"User Create", data:{}, error:{}})
+    res.render("admin/user/create",{ session:req.session ,title:"User Create", data:{}, error:{}})
 }
 
 async function store(req,res) {
@@ -48,7 +48,7 @@ async function store(req,res) {
                 errorMessage:{
                     password:"Password length must be 1 character 1 digit 1 special character "
                 },data:data
-            })
+            }) 
         }
        }
        else{
