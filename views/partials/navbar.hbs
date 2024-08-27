@@ -56,7 +56,13 @@
                             <a href="/admin" class="nav-item nav-link">Admin</a>
                         </div>
                         {{#if (isLogin session)}}
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Ankit Kumar</a>
+                       <div class="btn-group">
+                         <a href="#" class="btn btn-primary rounded-pill py-2 px-4">
+                            {{userName session}} </a>
+                            <a href="/logout" class="btn btn-damger rounded-pill py-2 px-4">
+                            Logout</a>
+                            
+                       </div>
                         {{else}}
                         <a href="/admin/login" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>
                         {{/if}}

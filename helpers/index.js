@@ -1,12 +1,12 @@
 const hbs =require("hbs")
 
 hbs.registerHelper("isLogin", function(session){
-    return session && session .login ? true: false
+    return session && session .login ?true: false
 
 })
 
-hbs.registerHelper("adminName",()=>{
-    return localStorage.getItem("name")??""
+hbs.registerHelper("userNane",(session)=>{
+    return session && session.login? session.name:""
 })
 
 // user selected admin or superAdmin 
