@@ -1,11 +1,11 @@
-const hbs =require("hbs")
+const hbs =require ("hbs")
 
 hbs.registerHelper("isLogin", function(session){
     return session && session .login ?true: false
 
 })
 
-hbs.registerHelper("userNane",(session)=>{
+hbs.registerHelper("userName",(session)=>{
     return session && session.login? session.name:""
 })
 

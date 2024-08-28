@@ -39,4 +39,14 @@ async function loginStore(req,res){
       
    }
 }
-module.exports={home,login,loginStore}
+
+//  Logout controller
+
+function logout(req,res){
+   req.session.destory("login")
+   req.session.destory("name")
+   req.session.destory("userid")
+   res.redirect("/admin/login")
+
+}
+module.exports={home,login,loginStore,logout}

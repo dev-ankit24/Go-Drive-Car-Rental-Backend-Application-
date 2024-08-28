@@ -1,73 +1,82 @@
 </head>
-    <body>
 
-        {{!-- <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+<body>
+
+    {{!-- <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
-        <!-- Spinner End --> --}}
- 
-        <!-- Topbar Start -->
-        <div class="container-fluid topbar bg-secondary d-none d-xl-block w-100">
-            <div class="container">
-                <div class="row gx-0 align-items-center" style="height: 45px;">
-                    <div class="col-lg-6 text-center text-lg-start mb-lg-0">
-                        <div class="d-flex flex-wrap">
-                            <a href="tel:+918392823395" class="text-light me-2"><i class="fas fa-phone-alt text-primary me-2"></i>+91-8392823395</a>
-                            <a href="mailto:webankit242@gmail.com" class="text-light me-0"><i class="fas fa-envelope text-primary me-2"></i>webankit242@gmail.com</a>
-                            <a href="https:wa.me/8392823395" target="_blank" class="text-light me-2 mx-2"><i class="bi bi-whatsapp text-success me-2"></i>+91-8392823395</a>
-                        </div>
+    </div>
+    <!-- Spinner End --> --}}
+
+    <!-- Topbar Start -->
+    <div class="container-fluid topbar bg-secondary d-none d-xl-block w-100">
+        <div class="container">
+            <div class="row gx-0 align-items-center" style="height: 45px;">
+                <div class="col-lg-6 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <a href="tel:+918392823395" class="text-light me-2"><i
+                                class="fas fa-phone-alt text-primary me-2"></i>+91-8392823395</a>
+                        <a href="mailto:webankit242@gmail.com" class="text-light me-0"><i
+                                class="fas fa-envelope text-primary me-2"></i>webankit242@gmail.com</a>
+                        <a href="https:wa.me/8392823395" target="_blank" class="text-light me-2 mx-2"><i
+                                class="bi bi-whatsapp text-success me-2"></i>+91-8392823395</a>
                     </div>
-                    <div class="col-lg-6 text-center text-lg-end">
-                        <div class="d-flex align-items-center justify-content-end">
-                            <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-light btn-sm-square rounded-circle me-0"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+                </div>
+                <div class="col-lg-6 text-center text-lg-end">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-light btn-sm-square rounded-circle me-3"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-light btn-sm-square rounded-circle me-0"><i
+                                class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Topbar End -->
+    </div>
+    <!-- Topbar End -->
 
-        <!-- Navbar & Hero Start -->
-        <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <a href="/" class="navbar-brand p-0">
-                        <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i></i>Cental</h1>
-                        <!-- <img src="img/logo.png" alt="Logo"> -->
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav mx-auto py-0">
-                            <a href="/" class="nav-item nav-link active">Home</a>
-                            <a href="/about" class="nav-item nav-link">About</a>
-                            <a href="/service" class="nav-item nav-link">Service</a>
-                            <a href="/feature" class="nav-item nav-link">Features</a>
-                            <a href="/cars" class="nav-item nav-link">Cars</a>
-                            <a href="/testimonials" class="nav-item nav-link">Testimonial</a>
-                            <a href="/contact" class="nav-item nav-link">Contact</a>
-                            <a href="/admin" class="nav-item nav-link">Admin</a>
-                        </div>
-                        {{#if (isLogin session)}}
-                       <div class="btn-group">
-                         <a href="#" class="btn btn-primary rounded-pill py-2 px-4">
-                            {{userName session}} </a>
-                            <a href="/logout" class="btn btn-damger rounded-pill py-2 px-4">
-                            Logout</a>
-                            
-                       </div>
-                        {{else}}
-                        <a href="/admin/login" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>
-                        {{/if}}
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a href="/" class="navbar-brand p-0">
+                    <h1 class="display-6 text-primary"><i class="fas fa-car-alt me-3"></i></i>Cental</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto py-0">
+                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/about" class="nav-item nav-link">About</a>
+                        <a href="/service" class="nav-item nav-link">Service</a>
+                        <a href="/feature" class="nav-item nav-link">Features</a>
+                        <a href="/cars" class="nav-item nav-link">Cars</a>
+                        <a href="/testimonials" class="nav-item nav-link">Testimonial</a>
+                        <a href="/contact" class="nav-item nav-link">Contact</a>
+                        <a href="/admin" class="nav-item nav-link">Admin</a>
                     </div>
-                </nav>
-            </div>
+                    {{#if (isLogin session)}}
+                    <div class="btn-group">
+                        <a href="/admin" class="btn btn-primary  px-4">
+                            Profile:({{userName session}}) </a>
+                        <a href="admin/logout" class="btn btn-danger mr-2 py-2 px-4">
+                            Logout</a>
+
+                    </div>
+                    {{else}}
+                    <a href="/admin/login" class="btn btn-primary rounded-pill py-2 px-4">LogIn</a>
+                    {{/if}}
+                </div>
+            </nav>
         </div>
-        <!-- Navbar & Hero End -->
+    </div>
+    <!-- Navbar & Hero End -->
