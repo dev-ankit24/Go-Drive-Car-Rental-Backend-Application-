@@ -25,6 +25,9 @@ let userSchema = mongoose.Schema({
     otp:{
         type:String
     },
+    pic:{
+        type:String
+    },
     role:{
         type:String,
         default:"admin"

@@ -1,9 +1,17 @@
 const User =require("../../models/User")
 
-function home(req,res){
-   
-   res.render("admin/home/index",{ session:req.session, title:"Admin Home"})
-   console.log(req.session.name);
+async function home(req,res){
+   try {
+      let data= await User.findOne({_id:req.session.userid})
+      if(data){
+      res.render("admin/home/index",{ session:req.session, title:"Admin Home", data:data})
+      }
+      else{
+         res.redirect("/admin/login")
+      }
+   } catch (error) {
+      console.log(error)
+   }
     
 }
 
