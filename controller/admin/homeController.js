@@ -51,7 +51,6 @@ async function loginStore(req,res){
 
 //  Logout controller
 
-
 function logout (req, res)  {
    req.session.destroy(err => {
      if (err) {
@@ -64,37 +63,44 @@ function logout (req, res)  {
  }
 
 // profile update (image store)
-
-function profileUpdate(req,res){
-   res.render("admin/home/login",{session:req.session, title:"Admin Login"})
+async function profileUpdate(req,res){
+   try {
+      let data= await User.findOne({_id:req.session.userid})
+      console.log(data);
+      
+      if(data){
+        res.render("admin/home/profile-update",{session:req.session, title:"Admin Profile Update ", data:data})
+      }
+      else{
+         res.redirect("/admin/login")
+         console.log("Error profile update function");
+         
+      }
+   } catch (error) {
+      console.log(error);
+      
+      
+   }
 }
 
 async function profileUpdateStore(req,res){
    try {
-      let data= await User.findOne({
-         $and:[
-            {
-               $or:[
-                  {username:req.body.username},
-                  {email:req.body.emil}
-               ]
-            },
-            {password:req.body.password}
-         ]
-      })
+      let data= await User.findOne({_id:req.session.userid})
       if(data){
-         req.session.login=true
-         req.session.name=data.name
-         req.session.userid=data.id
+         data.name=req.body.name
+         data.email=req.body.email
+         data.phone=req.body.phone
+         data.username = req.body.username
+         data.pic=req.body.pic
+         data.save()
          res.redirect("/admin")
       }
       else{
-         res.render("admin/home/login")
+         console.log("error Profile Update store");
       }
    } catch (error) {
       console.log(error);
       
    }
 }
-
-module.exports={home,login,loginStore,logout}
+module.exports={home,login,loginStore,logout, profileUpdate, profileUpdateStore}
