@@ -40,6 +40,7 @@ async function loginStore(req, res) {
       req.session.login = true;
       req.session.name = data.name;
       req.session.userid = data.id;
+      req.session.role = data.role;
       res.redirect("/admin");
     } else {
       res.render("admin/home/login", {

@@ -7,8 +7,8 @@ require("dotenv").config()
 
 
 app.set("view engine","hbs")
-app.use(express.static("./public"))
-app.use(express.static("public"))
+app.use(express.static("./public"))                 //this line used to set path of public folder which contains css, js, images  
+app.use("/public", express.static("./public"))      // this line used to server public folder (image upload )
 
 // session eexpress
 app.use(session({
@@ -18,10 +18,10 @@ app.use(session({
   cookie: { secure: false }
 }))
 
-hbs.registerPartials("./views/partials")
+hbs.registerPartials("./views/partials")        //  this line used to hbs partials
 
-require("./helpers/index.js")
-require("./db_connect.js")
+require("./helpers/index.js")                   // this line used to helpers (local storage, ect browser features)
+require("./db_connect.js")                     // this line used to connect database
  
 const router=require("./routes/routes")
 app.use("",router)
