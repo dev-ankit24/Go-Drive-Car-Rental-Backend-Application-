@@ -1,7 +1,7 @@
-const bodyParser= require("body-parser")
 const AdminHomeRouter=require("express").Router()
 
-const encoder= new bodyParser.urlencoded()
+const encoder = require("../../middelware/bodyParser")
+
 const {userUploader} =require("../../middelware/multerMiddleware")
 const {home,login, loginStore,logout, profileUpdate,profileUpdateStore} =require("../../controller/admin/homeController")
 
