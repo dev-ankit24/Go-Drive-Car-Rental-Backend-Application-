@@ -1,0 +1,65 @@
+{{>header}}
+<title>Cental - Car Rent | Create Testimonial Section</title>
+{{>navbar}}
+{{>hero}}
+<div class="container-fluid my-3">
+  <div class="row">
+    <div class="col-md-3">
+      {{>sidebar}}
+    </div>
+    <div class="col-md-9">
+      <h5 class="bg-primary text-center text-light p-2">Testimonial <a href="/admin/testimonial"><i
+            class="fa fa-backward text-light float-end"></i></a></h5>
+      <form action="/admin/testimonial/store" method="post" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-6 mt-3">
+            <input type="text" name="name" placeholder="Full Name" value="{{data.name}}"
+              class=" form-control {{#if errorMessage.name}} border-danger {{else}}border-primary {{/if}}">
+            {{#if errorMessage.name}}
+            <p class="text-danger">{{errorMessage.name}}</p>
+            {{/if}}
+          </div>
+          <div class="col-md-6 mt-3">
+            <input type="file" name="pic" placeholder="UserName" value="{{data.pic}}"
+              class=" form-control {{#if errorMessage.pic}} border-danger {{else}}border-primary {{/if}}">
+            {{#if errorMessage.pic}}
+            <p class="text-danger">{{errorMessage.pic}}</p>
+            {{/if}}
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Message*</label>
+            <textarea name="message" placeholder="Message" value="{{data.message}}"
+              class=" form-control {{#if errorMessage.message}} border-danger {{else}}border-primary {{/if}}" ></textarea>
+         {{#if errorMessage.message}}
+            <p class="text-danger">{{errorMessage.message}}</p>
+            {{/if}}
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mt-3">
+            <select name="active" class=" form-select border-primary">
+              <option {{checkActive data.active "true" }} value="true">Yes</option>
+              <option {{checkActive data.active "false" }} value="false">No</option>
+            </select>
+
+          </div>
+        </div>
+        <div class="row ">
+          <div class="mt-3 ">
+          <button type="submit" class="btn btn-primary w-100 p-2">Create</button>
+        </div>
+        
+        </div>
+      
+         
+
+      </form>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{{>footer}}
