@@ -22,37 +22,21 @@ function create(req, res){
 async function store(req,res) {
     try {
         var data= new Testimonial(req.body)
-       if(req.body.password === req.body.cpassword){
-        if(schema.validate(req.body.password)){
+            if(req.file){
+                data.pic=req.file.path
+            }
             await data.save()
-            res.redirect("/admin/testimonials")
+            res.redirect("/admin/testimonial")
             console.log("savedata:",data);
-            
-        }
-        else{
-            res.render("admin/testimonial/create",{
-                title:"Testimonial Create",
-                errorMessage:{
-                    password:"Password length must be 1 character 1 digit 1 special character "
-                },data:data
-            }) 
-        }
-       }
-       else{
-        res.render("admin/testimonial/create",{
-            title:"Testimonial Create",
-            errorMessage:{
-                password:"Password or Confirm do not Matched "
-            },data:data
-        })
-       }
+
     } catch (error) {
         console.log(error );
         errorMessage={}
-        error.keyValue && error.keyValue.name?(errorMessage["name"]="Name is Already Taken"):""
-        error.keyValue && error.keyValue.message?(errorMessage["message"]="message is Already Taken"):""
-        error.keyValue&& error.keyValue.pic?(errorMessage["pic"]="pic is Already Taken"):""
-        res.render("admin/testimonial/create",{errorMessage:errorMessage, data:data ,title:"Testimonial Create"})       
+        error.keyValue && error.keyValue.name?(errorMessage["name"]=error.errors?.name.message):""
+        error.keyValue && error.keyValue.message?(errorMessage["message"]=error.errors?.message.message):""
+        error.keyValue&& error.keyValue.pic?(errorMessage["pic"]=error.errors?.pic.message):""
+        // console.log(error.errors.name.message)
+        res.render("admin/testimonial/create",{errorMessage:errorMessage, data:data ,title:"Testimonial Create Section"})       
     }
 }
 
@@ -61,10 +45,10 @@ async function remove(req,res){
     try {
         let data = await Testimonial.findOne({_id:req.params._id})
        await data.deleteOne()
-        res.redirect("/admin/testimonials")
+        res.redirect("/admin/testimonial")
     } catch (error) {
         console.log(error);
-        res.redirect("/admin/testimonials")
+        res.redirect("/admin/testimonial")
     }
 }
 
@@ -86,12 +70,18 @@ async function update(req,res){
     try {
         var data= await Testimonial.findOne({_id:req.params._id})
         data.name= req.body.name
-        data.username=req.body.username
-        data.email= req.body.email
-        data.phone= req.body.phone
-        data.role = req.body.role
+        data.message= req.body.message
+        data.active = req.body.active
+        try {
+            if(req.file){
+                const fs =require("fs")
+                fs.unlinkSync(data.pic)
+            }
+        } catch (error) {}
+        data.pic=req.file.path
+
         await data.save()
-         res.redirect("/admin/testimonials")
+         res.redirect("/admin/testimonial")
     } catch (error) {
         console.log(error);
         

@@ -64,8 +64,13 @@ async function store(req,res) {
         errorMessage={}
         error.keyValue && error.keyValue.username?(errorMessage["username"]="UserName is Already Taken"):""
         error.keyValue && error.keyValue.email?(errorMessage["email"]="Email is Already Taken"):""
-        error.keyValue&& error.keyValue.phone?(errorMessage["phone"]="Phone is Already Taken"):""
-        error.errors?.name ?(errorMessage["name"]=error.errors?.name.message):""
+        // error.keyValue&& error.keyValue.phone?(errorMessage["phone"]="Phone is Already Taken"):""
+        error.errors?.name?(errorMessage["name"]=error.errors?.name.message):""
+        
+        error.errors?.username?(errorMessage["username"]=error.errors?.username.message):""
+        error.errors?.email?(errorMessage["email"]=error.errors?.email.message):""
+        error.errors?.phone?(errorMessage["phone"]=error.errors?.phone.message):""
+
         res.render("admin/user/create",{errorMessage:errorMessage, data:data ,title:"User Create"})       
     }
 }

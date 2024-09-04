@@ -13,7 +13,7 @@ app.use("/public", express.static("./public"))      // this line used to server 
 // session eexpress
 app.use(session({
   secret: process.env.SESSION_SECRET_KEY,
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   cookie: { secure: false }
 }))

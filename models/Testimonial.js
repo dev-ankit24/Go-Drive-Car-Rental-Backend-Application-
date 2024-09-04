@@ -7,10 +7,11 @@ const TestimonialSchema =mongoose.Schema({
     },
     message:{
         type:String,
-        required:[true, "Message Feild is Required"]
+        required: [true, "Message Feild is Required"]
     },
     pic:{
         type:String,
+        required:[true, "Pic Field Is Required"]
 
     },
     active:{

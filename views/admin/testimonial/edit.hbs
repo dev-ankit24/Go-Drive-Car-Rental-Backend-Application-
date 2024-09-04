@@ -13,6 +13,7 @@
        <form action="/admin/testimonial/update/{{data._id}}" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-md-6 mt-3">
+            <label >Name*</label>
             <input type="text" name="name" placeholder="Full Name" value="{{data.name}}"
               class=" form-control {{#if errorMessage.name}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.name}}
@@ -20,6 +21,7 @@
             {{/if}}
           </div>
           <div class="col-md-6 mt-3">
+            <label >Pic</label>
             <input type="file" name="pic" placeholder="UserName" value="{{data.pic}}"
               class=" form-control {{#if errorMessage.pic}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.pic}}
@@ -30,16 +32,18 @@
 
         <div class="mb-3">
             <label>Message*</label>
-            <textarea name="message" placeholder="Message" value="{{data.message}}"
-              class=" form-control {{#if errorMessage.message}} border-danger {{else}}border-primary {{/if}}" ></textarea>
+            <textarea name="message" placeholder="Message"
+              class=" form-control {{#if errorMessage.message}} border-danger {{else}}border-primary {{/if}}" >
+              {{data.message}}</textarea>
          
         </div>
 
         <div class="row">
           <div class="col-md-6 mt-3">
+            <label >Active*</label>
             <select name="active" class=" form-select border-primary">
-              <option {{checkActive data.active "true" }} value="true">Yes</option>
-              <option {{checkActive data.active "false" }} value="false">No</option>
+              <option {{checkActive data.active true }} value="true">Yes</option>
+              <option {{checkActive data.active false }} value="false">No</option>
             </select>
 
           </div>

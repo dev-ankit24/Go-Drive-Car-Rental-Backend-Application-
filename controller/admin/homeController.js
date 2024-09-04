@@ -37,10 +37,13 @@ async function loginStore(req, res) {
       ],
     });
     if (data) {
-      req.session.login = true;
+      req.session.login = true;                            // create session for  User Login 
       req.session.name = data.name;
       req.session.userid = data.id;
-      req.session.role  = data.role;
+      req.session.role = data.role;
+      var miliSeconds = 86400000;                            // Create Session Life For  User Login
+      req.session.cookie.expires = new Date(Date.now() + miliSeconds);
+      req.session.cookie.maxAge = miliSeconds;
       res.redirect("/admin");
     } else {
       res.render("admin/home/login", {
