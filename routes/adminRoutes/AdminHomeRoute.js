@@ -1,6 +1,6 @@
 const AdminHomeRouter=require("express").Router()
 
-const encoder = require("../../middelware/bodyParser")
+const {encoder} = require("../../middelware/bodyParser")
 
 const {isLogin}=require("../../middelware/roleCheckerMiddeware")
 const {userUploader} =require("../../middelware/multerMiddleware")

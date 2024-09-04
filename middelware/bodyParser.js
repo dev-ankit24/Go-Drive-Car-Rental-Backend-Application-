@@ -1,4 +1,4 @@
 const bodyParser =require("body-parser")
 const encoder = bodyParser.urlencoded()
 
-module.exports=encoder
+module.exports={encoder}

@@ -1,7 +1,5 @@
-const  bodyParser = require("body-parser")
 const AdminUserRouter=require("express").Router()
-
-const encoder = bodyParser.urlencoded()
+const {encoder} =require("../../middelware/bodyParser")
 
 const {superAdminChecker} =require('../../middelware/roleCheckerMiddeware')
 const {home,create, store, remove ,edit,update }=require("../../controller/admin/UserController")

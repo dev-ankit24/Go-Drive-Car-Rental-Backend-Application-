@@ -32,9 +32,7 @@
             <label>Message*</label>
             <textarea name="message" placeholder="Message" value="{{data.message}}"
               class=" form-control {{#if errorMessage.message}} border-danger {{else}}border-primary {{/if}}" ></textarea>
-         {{#if errorMessage.message}}
-            <p class="text-danger">{{errorMessage.message}}</p>
-            {{/if}}
+        
         </div>
 
         <div class="row">
