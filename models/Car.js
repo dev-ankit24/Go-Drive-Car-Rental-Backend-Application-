@@ -23,7 +23,7 @@ const CarSchema = mongoose.Schema({
     },
     active:{
         type:Boolean,
-        required:[true, "Active Field Is Required"]
+        default : true
     }
     ,
     pic:{

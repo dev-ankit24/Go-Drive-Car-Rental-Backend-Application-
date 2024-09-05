@@ -8,7 +8,7 @@
       {{>sidebar}}
     </div>
     <div class="col-md-9">
-      <h5 class="bg-primary text-center text-light p-2">Testimonial <a href="/admin/car/create"><i
+      <h5 class="bg-primary text-center text-light p-2">Car Admin Section  <a href="/admin/car/create"><i
             class="fa fa-plus text-light float-end"></i></a></h5>
         <table class="table table-bordered ">
           <thead>
@@ -43,6 +43,7 @@
               </th>
               <td><a href="/admin/car/edit/{{_id}}"><i class="fa fa-edit"></i></a></td>
               <td><a href="/admin/car/delete/{{_id}}"><i class="fa fa-trash text-danger"></i></a></td>
+
               <th class={{#if active}} "text-success" {{else}}"text-danger" {{/if}}>{{#if active}}Yes {{else}}No {{/if}} </th>
 
             </tr>

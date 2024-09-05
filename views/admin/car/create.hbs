@@ -8,77 +8,77 @@
       {{>sidebar}}
     </div>
     <div class="col-md-9">
-      <h5 class="bg-primary text-center text-light p-2">Testimonial <a href="/admin/car"><i
+      <h5 class="bg-primary text-center text-light p-2">Car Section <a href="/admin/car"><i
             class="fa fa-backward text-light float-end"></i></a></h5>
       <form action="/admin/car/store" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-md-6 mt-3">
-            <label >Name*</label>
+            <label>Name*</label>
             <input type="text" name="name" placeholder="Full Name" value="{{data.name}}"
               class=" form-control {{#if errorMessage.name}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.name}}
             <p class="text-danger">{{errorMessage.name}}</p>
             {{/if}}
           </div>
-            <div class="col-md-6 mt-3">
-            <label >Rating*</label>
+          <div class="col-md-6 mt-3">
+            <label>Rating*</label>
             <input type="number" name="rating" placeholder="Rating" min="1" max="5" value="{{data.name}}"
               class=" form-control {{#if errorMessage.name}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.name}}
             <p class="text-danger">{{errorMessage.name}}</p>
             {{/if}}
           </div>
-        
+
         </div>
-          <div class="row">
-            <div class="mb-3">
+        <div class="row">
+          <div class="col-md-6 mt-3">
             <label>Rent*</label>
-            <input type="number" name="rent" placeholder="renting...."  min="1" value="{{data.rent}}"
-              class=" form-control {{#if errorMessage.rent}} border-danger {{else}}border-primary {{/if}}" ></input>
-        {{#if errorMessage.rent}}
+            <input type="number" name="rent" placeholder="renting...." min="1" value="{{data.rent}}"
+              class=" form-control {{#if errorMessage.rent}} border-danger {{else}}border-primary {{/if}}"></input>
+            {{#if errorMessage.rent}}
             <p class="text-danger">{{errorMessage.rent}}</p>
             {{/if}}
-        </div>
-           <div class="mb-3">
+          </div>
+          <div class="col-md-6 mt-3">
             <label>Seating Capecity*</label>
-            <input type="number" name='Seating Capecity' placeholder="Seating Capecity" value="{{data.seat}}"
-              class=" form-control {{#if errorMessage.seat}} border-danger {{else}}border-primary {{/if}}" ></input>
-        {{#if errorMessage.seat}}
+            <input type="number" name='seat' placeholder="Seating Capecity" value="{{data.seat}}"
+              class=" form-control {{#if errorMessage.seat}} border-danger {{else}}border-primary {{/if}}"></input>
+            {{#if errorMessage.seat}}
             <p class="text-danger">{{errorMessage.seat}}</p>
             {{/if}}
-        </div>
           </div>
+        </div>
 
- <div class="row">
-            <div class="mb-3">
+        <div class="row">
+          <div class="col-md-6 mt-3">
             <label>Driving Mode*</label>
             <select name="active" class=" form-select border-primary">
               <option {{checkDropDown data.mode "AMT" }}>AMT</option>
-              <option {{checkDropDown data.mode  'false' }}>Manul</option>
+              <option {{checkDropDown data.mode 'false' }}>Manul</option>
             </select>
-        </div>
-           <div class="mb-3">
+          </div>
+          <div class="col-md-6 mt-3">
             <label>Fuel Type*</label>
-             <select name="fuelType" class=" form-select border-primary">
+            <select name="fuelType" class=" form-select border-primary">
               <option {{checkDropDown data.fuelType "Petrol" }}>Petrol</option>
-              <option {{checkDropDown data.fuelType  'Diesel ' }}>Diesel</option>
-              <option {{checkDropDown data.fuelType  'CNG ' }}>CNG</option>
+              <option {{checkDropDown data.fuelType 'Diesel ' }}>Diesel</option>
+              <option {{checkDropDown data.fuelType 'CNG ' }}>CNG</option>
             </select>
+          </div>
         </div>
-          </div>          
-       
-   <div class="row">
-    
-      <div class="col-md-6 mt-3">
-            <label >Pic*</label>
+
+        <div class="row">
+
+          <div class="col-md-6 mt-3">
+            <label>Pic*</label>
             <input type="file" name="pic" placeholder="pic" value="{{data.pic}}"
               class=" form-control {{#if errorMessage.pic}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.pic}}
             <p class="text-danger">{{errorMessage.pic}}</p>
             {{/if}}
-          </div> 
+          </div>
           <div class="col-md-6 mt-3">
-            <label >Active*</label>
+            <label>Active*</label>
             <select name="active" class=" form-select border-primary">
               <option {{checkDropDown data.active true }} value="true">Yes</option>
               <option {{checkDropDown data.active false}} value="false">No</option>
@@ -88,15 +88,15 @@
         </div>
 
 
-       
+
         <div class="row ">
           <div class="mt-3 ">
-          <button type="submit" class="btn btn-primary w-100 p-2">Create</button>
+            <button type="submit" class="btn btn-primary w-100 p-2">Create</button>
+          </div>
+
         </div>
-        
-        </div>
-      
-         
+
+
 
       </form>
 
