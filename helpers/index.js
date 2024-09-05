@@ -11,8 +11,8 @@ hbs.registerHelper("userName",(session)=>{
 })
 
 // user selected admin or superAdmin 
-hbs.registerHelper("checkRole", (selectedRole, role)=>{
-    return  selectedRole == role ? "selected ":""
+hbs.registerHelper("checkDropDown", (selected, option)=>{
+    return  selected == option ? "selected ":""
 })
 
 

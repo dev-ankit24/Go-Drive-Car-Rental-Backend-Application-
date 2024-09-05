@@ -22,7 +22,7 @@
           </div>
             <div class="col-md-6 mt-3">
             <label >Rating*</label>
-            <input type="number" name="rating" placeholder="Rating" value="{{data.name}}"
+            <input type="number" name="rating" placeholder="Rating" min="1" max="5" value="{{data.name}}"
               class=" form-control {{#if errorMessage.name}} border-danger {{else}}border-primary {{/if}}">
             {{#if errorMessage.name}}
             <p class="text-danger">{{errorMessage.name}}</p>
@@ -33,7 +33,7 @@
           <div class="row">
             <div class="mb-3">
             <label>Rent*</label>
-            <input type="number" name="rent" placeholder="renting...." value="{{data.rent}}"
+            <input type="number" name="rent" placeholder="renting...."  min="1" value="{{data.rent}}"
               class=" form-control {{#if errorMessage.rent}} border-danger {{else}}border-primary {{/if}}" ></input>
         {{#if errorMessage.rent}}
             <p class="text-danger">{{errorMessage.rent}}</p>
@@ -52,19 +52,18 @@
  <div class="row">
             <div class="mb-3">
             <label>Driving Mode*</label>
-            <input type="text" name="mode" placeholder="Driving Mode" value="{{data.mode}}"
-              class=" form-control {{#if errorMessage.mode}} border-danger {{else}}border-primary {{/if}}" ></input>
-        {{#if errorMessage.mode}}
-            <p class="text-danger">{{errorMessage.mode}}</p>
-            {{/if}}
+            <select name="active" class=" form-select border-primary">
+              <option {{checkDropDown data.mode "AMT" }}>AMT</option>
+              <option {{checkDropDown data.mode  'false' }}>Manul</option>
+            </select>
         </div>
            <div class="mb-3">
             <label>Fuel Type*</label>
-            <input type='text' name='fuelType' placeholder="Fuel Type" value="{{data.fuelType}}"
-              class=" form-control {{#if errorMessage.fuelType}} border-danger {{else}}border-primary {{/if}}" ></input>
-        {{#if errorMessage.fuelType}}
-            <p class="text-danger">{{errorMessage.fuelType}}</p>
-            {{/if}}
+             <select name="fuelType" class=" form-select border-primary">
+              <option {{checkDropDown data.fuelType "Petrol" }}>Petrol</option>
+              <option {{checkDropDown data.fuelType  'Diesel ' }}>Diesel</option>
+              <option {{checkDropDown data.fuelType  'CNG ' }}>CNG</option>
+            </select>
         </div>
           </div>          
        
@@ -81,14 +80,14 @@
           <div class="col-md-6 mt-3">
             <label >Active*</label>
             <select name="active" class=" form-select border-primary">
-              <option {{checkActive data.active true }} value="true">Yes</option>
-              <option {{checkActive data.active false}} value="false">No</option>
+              <option {{checkDropDown data.active true }} value="true">Yes</option>
+              <option {{checkDropDown data.active false}} value="false">No</option>
             </select>
 
           </div>
         </div>
 
-   </div>
+
        
         <div class="row ">
           <div class="mt-3 ">

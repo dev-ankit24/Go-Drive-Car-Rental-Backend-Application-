@@ -72,16 +72,16 @@ async function update(req,res){
         data.name= req.body.name
         data.message= req.body.message
         data.active = req.body.active
-        try {
-            if(req.file){
-                const fs =require("fs")
+        // data.pic =  req.body.pic
+        if(req.file){
+            try {
+                const fs =require('fs')
                 fs.unlinkSync(data.pic)
-            }
-        } catch (error) {}
-        data.pic=req.file.path
-
+            } catch (error) {}
+            data.pic = req.file.path
+        }
         await data.save()
-         res.redirect("/admin/testimonial")
+        res.redirect("/admin/testimonial")
     } catch (error) {
         console.log(error);
         
@@ -89,7 +89,7 @@ async function update(req,res){
         error.keyValue && error.keyValue.name?(errorMessage["name"]="Name is Already Taken"):""
         error.keyValue && error.keyValue.message?(errorMessage["message"]="message is Already Taken"):""
         error.keyValue&& error.keyValue.pic?(errorMessage["pic"]="pic is Already Taken"):""
-        render("admin/testimonial/edit",{errorMessage:errorMessage , data:data ,title:"Testimonial Create"})
+        res.render("admin/testimonial/edit",{errorMessage:errorMessage , data:data ,title:"Testimonial Create"})
         
         
     }
