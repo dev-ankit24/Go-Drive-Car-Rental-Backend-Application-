@@ -20,6 +20,15 @@ const CarSchema = mongoose.Schema({
     fuelType:{
         type:String,
         required:[true, "Fuel Mode Is Required"]
+    },
+    active:{
+        type:Boolean,
+        required:[true, "Active Field Is Required"]
+    }
+    ,
+    pic:{
+        type:String,
+        required:[true, "Pic Is Field Required"]
     }
 })
 

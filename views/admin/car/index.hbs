@@ -18,6 +18,10 @@
               <th>Rating</th>
               <th>Rent</th>
               <th>Seating Capecity</th>
+              <th> Driving Mode </th>
+              <th>Fuel Type</th>
+              <th>Active</th>
+              <th>Pic</th>
             
               <th></th>
               <th></th>
@@ -28,16 +32,19 @@
             <tr>
               <td>{{_id}}</td>
               <td>{{name}}</td>
-              <td>{{message}}</td>
-              <td>{{#if active}}Yes {{else}}No {{/if}}</td>
-              <td>
-                <a href='/{{pic}}' target="_blank">
-                  <img src="/{{pic}}" height="50px" width="50px" alt="testimonial pic">
-                </a>
-              </td>
-             
+              <td>{{rating}}</td>
+              <td>{{rent}}</td>
+              <td>{{seat}}</td>
+              <td>{{mode}}</td>
+              <td>{{fuelType}}</td>
+              <th>
+                <a href="/{{pic}}" target="_blank">
+                <img src="/{{pic}}" height="50px" width="50px"  alt="car image"></a>
+              </th>
               <td><a href="/admin/car/edit/{{_id}}"><i class="fa fa-edit"></i></a></td>
               <td><a href="/admin/car/delete/{{_id}}"><i class="fa fa-trash text-danger"></i></a></td>
+              <th>{{active}}</th>
+
             </tr>
             {{/each}}
           </tbody>
