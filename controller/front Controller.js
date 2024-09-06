@@ -1,11 +1,12 @@
+const Testimonial = require("../models/Testimonial")
  const Car = require("../models/Car")
- const Testimonial = require("../models/Testimonial")
  
  
  async function homePage(req,res){
     try {
-        const testimonials= await Testimonial.find().sort({_id:1,testimonials:testimonials})
-        const cars = await Car.find().sort({_id:1, cars:cars})
+        let testimonials= await Testimonial.find().sort({_id:1})
+        const cars = await Car.find().sort({_id:1})
+        res.render("index",{testimonials:testimonials, cars:cars})
     } catch (error) {
         console.log(error );
         
@@ -28,14 +29,10 @@ async function carsPage(req,res){
     try {
        const cars= await Car.find().sort({_id:1}) 
        res.render("carsPage",{session:req.session, title:"Cars", cars:cars})
-
     } catch (error) {
-        
+        console.log(error);
     }
-}
-
-
-
+ }
 
 async function testimonialPage(req,res){
     try {

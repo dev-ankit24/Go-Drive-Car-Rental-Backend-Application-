@@ -1,3 +1,14 @@
+/* start testimonial  */
+.testimonial-message{
+    height: 130px;
+    display: auto;
+}
+.testimonial-message::-webkit-scrollbar{
+    display: none;
+}
+/* testimonial end */
+
+
 
 /*** Spinner Start ***/
 /*** Spinner ***/
