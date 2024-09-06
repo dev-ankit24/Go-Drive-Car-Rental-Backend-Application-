@@ -5,7 +5,7 @@ const Car  = require("../../models/Car")
 async function home(req,res){
   try {
     let data= await Car.find().sort({_id:-1})
-    res.render("admin/car/index",{ session:req.session ,title:"Car Home ",data:data} )
+    res.render("admin/car/index",{ session:req.session ,title:"Admin Car Home Section ",data:data} )
 
   } catch (error) {
      console.log(error);
@@ -16,7 +16,7 @@ async function home(req,res){
 // create data and store data in mongodb and validations
 
 function create(req, res){
-    res.render("admin/car/create",{ session:req.session ,title:"Car Create", data:{}, error:{}})
+    res.render("admin/car/create",{ session:req.session ,title:"Admin Car Create  Section ", data:{}, error:{}})
 }
 
 async function store(req,res) {
@@ -89,7 +89,7 @@ async function update(req,res){
             data.pic = req.file.path
         }
         await data.save()
-        res.redirect("/admin/car")
+        res.redirect("/admin/car", {title:"Admin Car Update/Edit Section"})
     } catch (error) {
         console.log(error );
         errorMessage={}

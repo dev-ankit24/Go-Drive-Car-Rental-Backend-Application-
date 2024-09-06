@@ -1,5 +1,15 @@
- function homePage(req,res){
-    res.render("index")
+ const Car = require("../models/Car")
+ const Testimonial = require("../models/Testimonial")
+ 
+ 
+ async function homePage(req,res){
+    try {
+        const testimonials= await Testimonial.find().sort({_id:1,testimonials:testimonials})
+        const cars = await Car.find().sort({_id:1, cars:cars})
+    } catch (error) {
+        console.log(error );
+        
+    }
 }
 
 function aboutPage(req,res){
@@ -14,16 +24,28 @@ function featurePage(req,res){
     res.render("featurePage",{session:req.session, title:"Features"})
 }
 
-function carsPage(req,res){
-    res.render("carsPage",{session:req.session, title:"Cars"})
+async function carsPage(req,res){
+    try {
+       const cars= await Car.find().sort({_id:1}) 
+       res.render("carsPage",{session:req.session, title:"Cars", cars:cars})
+
+    } catch (error) {
+        
+    }
 }
 
-// function teamPage(req,res){
-//     res.render("teamPage",{session:req.session, title:"Teams"})
-// }
 
-function testimonialPage(req,res){
-    res.render("testimonialPage",{session:req.session, title:"Testimonials"})
+
+
+async function testimonialPage(req,res){
+    try {
+        const testimonials = await Testimonial.find().sort({_id:1}) 
+       res.render("testimonialPage",{session:req.session, title:"Testimonials" , testimonials:testimonials})
+
+    } catch (error) {
+        console.log(error);
+        
+    }
 }
 
 function contact(req,res){
