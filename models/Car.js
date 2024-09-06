@@ -13,13 +13,17 @@ const CarSchema = mongoose.Schema({
         type:Number,
         required:[true,"Seat Field Is Required"]
     },
+    rent:{
+        type:Number,
+        required:[true, "Rent Feild Is Required"]
+    },
     mode:{
         type:String,
         required:[true,"Mode Field Is Required"]
     },
     fuelType:{
         type:String,
-        required:[true, "Fuel Mode Is Required"]
+        required:[true, "FuelType Field Is Required"]
     },
     active:{
         type:Boolean,

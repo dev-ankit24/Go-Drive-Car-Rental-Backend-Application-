@@ -16,10 +16,10 @@ hbs.registerHelper("checkDropDown", (selected, option)=>{
 })
 
 
-// Testimonial check active 
-hbs.registerHelper("checkActive", (selectedStatus, status)=>{
-    return  selectedStatus == status ? "selected ":""
-})
+// // Testimonial check active 
+// hbs.registerHelper("checkActive", (selectedStatus, status)=>{
+//     return  selectedStatus == status ? "selected ":""
+// })
 
 // used to user profile show or not 
 hbs.registerHelper("isSuperAdmin", (session)=>{

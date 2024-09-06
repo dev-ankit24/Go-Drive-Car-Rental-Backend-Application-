@@ -8,7 +8,7 @@
       {{>sidebar}}
     </div>
     <div class="col-md-9">
-      <h5 class="bg-primary text-center text-light p-2">Car Section <a href="/admin/car"><i
+      <h5 class="bg-primary text-center text-light p-2">Car Create Section <a href="/admin/car"><i
             class="fa fa-backward text-light float-end"></i></a></h5>
       <form action="/admin/car/store" method="post" enctype="multipart/form-data">
         <div class="row">
@@ -22,10 +22,10 @@
           </div>
           <div class="col-md-6 mt-3">
             <label>Rating*</label>
-            <input type="number" name="rating" placeholder="Rating" min="1" max="5" value="{{data.name}}"
-              class=" form-control {{#if errorMessage.name}} border-danger {{else}}border-primary {{/if}}">
-            {{#if errorMessage.name}}
-            <p class="text-danger">{{errorMessage.name}}</p>
+            <input type="number" name="rating" placeholder="Rating" min="1" max="5" value="{{data.rating}}"
+              class=" form-control {{#if errorMessage.rating}} border-danger {{else}}border-primary {{/if}}">
+            {{#if errorMessage.rating}}
+            <p class="text-danger">{{errorMessage.rating}}</p>
             {{/if}}
           </div>
 
@@ -33,15 +33,15 @@
         <div class="row">
           <div class="col-md-6 mt-3">
             <label>Rent*</label>
-            <input type="number" name="rent" placeholder="renting...." min="1" value="{{data.rent}}"
+            <input type="number" name="rent" placeholder="Rent/Day" min="1" value="{{data.rent}}"
               class=" form-control {{#if errorMessage.rent}} border-danger {{else}}border-primary {{/if}}"></input>
             {{#if errorMessage.rent}}
             <p class="text-danger">{{errorMessage.rent}}</p>
             {{/if}}
           </div>
           <div class="col-md-6 mt-3">
-            <label>Seating Capecity*</label>
-            <input type="number" name='seat' placeholder="Seating Capecity" value="{{data.seat}}"
+            <label>Seating Capacity*</label>
+            <input type="number" name='seat' placeholder="Seating Capacity" value="{{data.seat}}"
               class=" form-control {{#if errorMessage.seat}} border-danger {{else}}border-primary {{/if}}"></input>
             {{#if errorMessage.seat}}
             <p class="text-danger">{{errorMessage.seat}}</p>
@@ -52,17 +52,20 @@
         <div class="row">
           <div class="col-md-6 mt-3">
             <label>Driving Mode*</label>
-            <select name="active" class=" form-select border-primary">
+            <select name="mode" class=" form-select border-primary">
               <option {{checkDropDown data.mode "AMT" }}>AMT</option>
-              <option {{checkDropDown data.mode 'false' }}>Manul</option>
+              <option {{checkDropDown data.mode 'Manual' }}>Manul</option>
+              <option {{checkDropDown data.mode 'Both AMT/Manual' }}>Both AMT/Manual</option>
             </select>
           </div>
           <div class="col-md-6 mt-3">
             <label>Fuel Type*</label>
             <select name="fuelType" class=" form-select border-primary">
-              <option {{checkDropDown data.fuelType "Petrol" }}>Petrol</option>
-              <option {{checkDropDown data.fuelType 'Diesel ' }}>Diesel</option>
-              <option {{checkDropDown data.fuelType 'CNG ' }}>CNG</option>
+              <option {{checkDropDown data.fuelType "Petrol" }} value="Petrol">Petrol</option>
+              <option {{checkDropDown data.fuelType 'Diesel ' }} value="Diesel">Diesel</option>
+              <option {{checkDropDown data.fuelType 'CNG ' }} value="CNG">CNG</option>
+              <option {{checkDropDown data.fuelType  'Both CNG/Petrol'}} value="Both CNG/Petrol">Both CNG/Petrol</option>
+              <option {{checkDropDown data.fuelType 'Both Diesal/Petrol' }} value="Both Diesal/Petrol">Both Diesal/Petrol</option>
             </select>
           </div>
         </div>

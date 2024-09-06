@@ -14,17 +14,17 @@
           <thead>
             <tr>
               <th>id</th>
-              <th>Name</th>
+              <th>Car Name</th>
               <th>Rating</th>
-              <th>Rent</th>
-              <th>Seating Capecity</th>
+              <th>Rent/Day</th>
+              <th>Seat Capacity</th>
               <th> Driving Mode </th>
               <th>Fuel Type</th>
               <th>Active</th>
               <th>Pic</th>
             
-              <th></th>
-              <th></th>
+              <th>Edit/Update</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -37,14 +37,14 @@
               <td>{{seat}}</td>
               <td>{{mode}}</td>
               <td>{{fuelType}}</td>
+              <th class={{#if active}} "text-success" {{else}}"text-danger" {{/if}}>{{#if active}}Yes {{else}}No {{/if}} </th>
               <th>
                 <a href="/{{pic}}" target="_blank">
                 <img src="/{{pic}}" height="50px" width="50px"  alt="car image"></a>
               </th>
+
               <td><a href="/admin/car/edit/{{_id}}"><i class="fa fa-edit"></i></a></td>
               <td><a href="/admin/car/delete/{{_id}}"><i class="fa fa-trash text-danger"></i></a></td>
-
-              <th class={{#if active}} "text-success" {{else}}"text-danger" {{/if}}>{{#if active}}Yes {{else}}No {{/if}} </th>
 
             </tr>
             {{/each}}
