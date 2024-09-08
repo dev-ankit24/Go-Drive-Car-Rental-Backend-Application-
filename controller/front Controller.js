@@ -1,6 +1,6 @@
 const Testimonial = require("../models/Testimonial")
- const Car = require("../models/Car")
- 
+const Car = require("../models/Car")
+const Contact =require("../models/Contact") 
  
  async function homePage(req,res){
     try {
@@ -45,9 +45,30 @@ async function testimonialPage(req,res){
     }
 }
 
+// Contact get or store data
 function contact(req,res){
-    res.render("contact",{session:req.session, title:"Contact Us"})
+    res.render("contact",{session:req.session, title:"Contact Us", errorMessage:{}, data:{}, show:false})
 }
+
+async function contactStore(req, res){
+    try {
+       var data= new Contact(req.body) 
+       data.date =new Date()
+       await data.save()   
+       res.render("contact",{session:req.session, title:"Contact US", errorMessage:{}, data:{},show:true})
+    } catch (error) {
+       console.log(error)
+       errorMessage ={} 
+       error.error?.name?(errorMessage["name"]=error.errors?.name.message):""
+       error.error?.email?(errorMessage["email"]=error.errors?.email.message):""
+       error.error?.phone?(errorMessage["phone"]=error.errors?.phone.message):""
+       error.error?.subject?(errorMessage["subject"]=error.errors?.subject.message):""
+       error.error?.message?(errorMessage["message"]=error.errors?.message.message):""
+       res.render("contact" ,{  errorMessage:errorMessage ,title:"Contact Us Error", data:data, show:false})
+    }
+}
+
+
 
 function eroor404(req,res){
     res.render("404",{session:req.session, title:"404 Page Not Found !"})
@@ -60,7 +81,7 @@ module.exports={
     contact,
     featurePage,
     servicePage,
-    // teamPage,
     testimonialPage,
-    eroor404
+    eroor404,
+    contactStore
 }

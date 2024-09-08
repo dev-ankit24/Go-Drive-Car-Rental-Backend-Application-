@@ -1,6 +1,17 @@
 const router=require("express").Router()    // router object
 
-const {homePage,aboutPage,servicePage,carsPage,contact,featurePage,teamPage,testimonialPage,eroor404} = require("../controller/front Controller")
+const {encoder} =require("../middelware/bodyParser")
+
+const {homePage,
+    aboutPage,
+    servicePage,
+    carsPage,
+    contact,
+    featurePage,
+ testimonialPage,
+ eroor404
+ ,contactStore
+} = require("../controller/front Controller")
 
 // Admin Routes Controller
 const AdminRouter=require("./adminRoutes/adminRoutes")
@@ -12,6 +23,7 @@ router.get("/feature",featurePage)
 router.get("/cars",carsPage)
 router.get("/testimonials",testimonialPage)
 router.get("/contact",contact)
+router.post("/contact",encoder, contactStore)
 
 
 // Admin Routes

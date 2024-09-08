@@ -33,13 +33,13 @@ async function store(req,res) {
         console.log(error );
         errorMessage={}
         error.keyValue && error.keyValue.name?(errorMessage["name"]=error.errors?.name.message):""
-        error.keyValue && error.keyValue.rating?(errorMessage["message"]=error.errors?.rating.message):""
-        error.keyValue && error.keyValue.rent?(errorMessage["message"]=error.errors?.rent.message):""
-        error.keyValue && error.keyValue.seat?(errorMessage["message"]=error.errors?.seat.message):""
-        error.keyValue && error.keyValue.mode?(errorMessage["message"]=error.errors?.mode.message):""
-        error.keyValue && error.keyValue.fuelType?(errorMessage["message"]=error.errors?.fuelType.message):""
+        error.keyValue && error.keyValue.rating?(errorMessage["rating"]=error.errors?.rating.message):""
+        error.keyValue && error.keyValue.rent?(errorMessage["rent"]=error.errors?.rent.message):""
+        error.keyValue && error.keyValue.seat?(errorMessage["seat"]=error.errors?.seat.message):""
+        error.keyValue && error.keyValue.mode?(errorMessage["mode"]=error.errors?.mode.message):""
+        error.keyValue && error.keyValue.fuelType?(errorMessage["fuelType"]=error.errors?.fuelType.message):""
         error.keyValue&& error.keyValue.pic?(errorMessage["pic"]=error.errors?.pic.message):""
-        error.keyValue && error.keyValue.active?(errorMessage["message"]=error.errors?.active.message):""
+        error.keyValue && error.keyValue.active?(errorMessage["active"]=error.errors?.active.message):""
 
         res.render("admin/car/create",{errorMessage:errorMessage, data:data ,title:"Car Create Section"})       
     }
@@ -94,13 +94,13 @@ async function update(req,res){
         console.log(error );
         errorMessage={}
         error.keyValue && error.keyValue.name?(errorMessage["name"]=error.errors?.name.message):""
-        error.keyValue && error.keyValue.rating?(errorMessage["message"]=error.errors?.rating.message):""
-        error.keyValue && error.keyValue.rent?(errorMessage["message"]=error.errors?.rent.message):""
-        error.keyValue && error.keyValue.seat?(errorMessage["message"]=error.errors?.seat.message):""
-        error.keyValue && error.keyValue.mode?(errorMessage["message"]=error.errors?.mode.message):""
-        error.keyValue && error.keyValue.fuelType?(errorMessage["message"]=error.errors?.fuelType.message):""
+        error.keyValue && error.keyValue.rating?(errorMessage["rating"]=error.errors?.rating.message):""
+        error.keyValue && error.keyValue.rent?(errorMessage["rent"]=error.errors?.rent.message):""
+        error.keyValue && error.keyValue.seat?(errorMessage["seat"]=error.errors?.seat.message):""
+        error.keyValue && error.keyValue.mode?(errorMessage["mode"]=error.errors?.mode.message):""
+        error.keyValue && error.keyValue.fuelType?(errorMessage["fuelType"]=error.errors?.fuelType.message):""
         error.keyValue&& error.keyValue.pic?(errorMessage["pic"]=error.errors?.pic.message):""
-        error.keyValue && error.keyValue.active?(errorMessage["message"]=error.errors?.active.message):""
+        error.keyValue && error.keyValue.active?(errorMessage["active"]=error.errors?.active.message):""
 
         res.render("admin/car/edit",{errorMessage:errorMessage , data:data ,title:"Car Create"})
         

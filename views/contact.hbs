@@ -62,43 +62,56 @@
             </div>
             <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="bg-secondary p-5 rounded">
-                    <h3 class="text-light text-center mb-4">Send Your Message</h3>
-                    <form>
+                    <h3 class="text-light text-center mb-4">{{#if show}}Thanks to Share Your Query with Us . Our Team
+                        wil Contact You Soon !!! {{else}}Send Your Message{{/if}}</h3>
+                    <form action="" method="post">
                         <div class="row g-4">
                             <div class="col-lg-12 col-xl-12">
                                 <div class="form-floating">
-                                    <input type="text" name="name" class="form-control" id="name"
-                                        placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                    <input type="text" name="name"
+                                        class="form-control {{#if errorMessage.name}} border-danger border-6{{/if}}"
+                                        id="name" placeholder="Your Name">
+                                    <label for="name">{{#if errorMessage.name }}{{errorMessage.name }}{{else}}Your
+                                        Name{{/if}}</label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-xl-6">
+                                <div class="form-floating">
+                                    <input type="email" name="email"
+                                        class="form-control{{#if errorMessage.email}}border-danger  border-6{{/if}}"
+                                        id="email" placeholder="Your Email">
+                                    <label for="email">{{#if errorMessage.email}}{{errorMessage.email}} {{else}}Your
+                                        Email{{/if}}</label>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
-                                    <input type="email" name="email" class="form-control" id="email"
-                                        placeholder="Your Email">
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-xl-6">
-                                <div class="form-floating">
-                                    <input type="phone" name="phone" class="form-control" id="phone"
-                                        placeholder="Phone">
-                                    <label for="phone">Your Phone</label>
+                                    <input type="phone" name="phone"
+                                        class="form-control {{#if errorMessage.phone}}border-danger border-6 {{/if}}"
+                                        id="phone" placeholder="Phone">
+                                    <label for="phone">{{#if errorMessage.phone}}{{errorMessage.phone}}{{else}}Your
+                                        Phone{{/if}}</label>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" name="subject" class="form-control" id="subject"
-                                        placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <input type="text" name="subject"
+                                        class="form-control {{#if errorMessage.subject}}border-danger border-6 {{/if}}"
+                                        id="subject" placeholder="Subject">
+                                    <label for="subject"> {{#if
+                                        errorMessage.subject}}{{errorMessage.subject}}{{else}}Subject{{/if}}</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" name="message" placeholder="Leave a message here"
-                                        id="message" style="height: 160px"></textarea>
-                                    <label for="message">Message</label>
+                                    <textarea
+                                        class="form-control {{#if errorMessage.message}}border-danger border-6 {{/if}}"
+                                        name="message" placeholder="Leave a message here" id="message"
+                                        style="height: 160px"></textarea>
+                                    <label for="message">{{#if
+                                        errorMessage.message}}{{errorMessage.message}}{{else}}Message{{/if}}</label>
                                 </div>
 
                             </div>
@@ -131,11 +144,10 @@
 
             </div>
         </div>
-        
+
 
     </div>
 </div>
 </div>
-<!-- Contact End -->
-
 {{>footer}}
+<!-- Contact End -->
