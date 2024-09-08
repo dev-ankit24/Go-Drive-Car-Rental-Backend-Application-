@@ -25,3 +25,8 @@ hbs.registerHelper("checkDropDown", (selected, option)=>{
 hbs.registerHelper("isSuperAdmin", (session)=>{
 return session  && session.role ==="Super Admin" ?  true :false
 })
+
+// date helper 
+hbs.registerHelper("getdate",(date)=>{
+    return new Date(date).toLocaleDateString()
+})

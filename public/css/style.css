@@ -1,12 +1,15 @@
 /* start testimonial  */
-.testimonial-message{
-    height: 130px;
-    display: auto;
+
+.testimonial-message {
+    height: 130px  !important;
+    overflow: auto;
+    min-width: 300px ;
 }
 .testimonial-message::-webkit-scrollbar{
     display: none;
 }
 /* testimonial end */
+
 
 
 

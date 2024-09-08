@@ -5,11 +5,14 @@ const AdminUserRouter=require("./AdminUserRoute")
 const AdminHomeRouter =require( "./AdminHomeRoute")
 const AdminTestimonialRouter =require( "./AdminTestimonialRoute")
 const AdminCarRouter =require( "./AdminCarRoute")
+const AdminContactRouter =require( "./AdminContactRoute")
+
 
 AdminRouter.use("/", AdminHomeRouter)
 AdminRouter.use("/users",AdminUserRouter)
 AdminRouter.use("/testimonial",AdminTestimonialRouter)
 AdminRouter.use("/car",AdminCarRouter)
+AdminRouter.use("/contact",AdminContactRouter)
 
 
 

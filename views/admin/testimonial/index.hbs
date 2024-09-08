@@ -28,7 +28,11 @@
             <tr>
               <td>{{_id}}</td>
               <td>{{name}}</td>
-              <td>{{message}}</td>
+               <td >
+                <div class="testimonial-message">
+                {{message}}
+                </div>
+              </td>
               <td>{{#if active}}Yes {{else}}No {{/if}}</td>
               <td>
                 <a href='/{{pic}}' target="_blank">
