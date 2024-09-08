@@ -45,7 +45,7 @@ async function edit(req, res){
 async function show(req, res){
     try {
         let data = await Contact.findOne({_id:req.params._id})
-        res.render("admin/contact/edit",{title:" Admin User Edit Section ", data:data , error:{}})
+        res.render("admin/contact/show",{title:" Contact Query", data:data , })
     } catch (error) {
         console.log(error);
         res.redirect("/admin/contact")

@@ -1,0 +1,57 @@
+{{>header}}
+<title>Cental - Car Rent | Admin Testimonials Section</title>
+{{>navbar}}
+{{>hero}}
+<div class="container-fluid my-3">
+  <div class="row">
+    <div class="col-md-3">
+      {{>sidebar}}
+    </div>
+    <div class="col-md-9">
+      <h5 class="bg-primary text-center text-light p-2">User Query </h5>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr>
+            <td>Id</td>
+            <td>{{data._id}}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{{data.name}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{data.email}}</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>{{data.phone}}</td>
+          </tr>
+          <tr>
+            <td>Subject</td>
+            <td>{{data.subject}}</td>
+          </tr>
+          <tr>
+            <td>Message</td>
+            <td>{{data.message}}</td>
+          </tr>
+          <tr>
+            <td>Active</td>
+            <td>{{#if data.active}} Yes {{else}}No {{/if}}</td>
+          </tr>
+        </table>
+
+        <div class="row ">
+          <div class="mb-1 ">
+<a href="/admin/contact">
+            <button type="submit" class="btn btn-primary w-100 p-2">Back</button></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{{>footer}}
