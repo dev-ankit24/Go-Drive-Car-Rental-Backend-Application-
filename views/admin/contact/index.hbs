@@ -42,10 +42,12 @@
           
               <th class={{#if active}} "text-success" {{else}}"text-danger" {{/if}}>{{#if active}}Yes {{else}}No {{/if}} </th>
             
-
+              {{#if active }}
+              <td><a href="/admin/contact/show/{{_id}}"><i class="fa fa-eye"></i></a></td>
+              {{else}}
               <td><a href="/admin/contact/show/{{_id}}"><i class="fa fa-eye"></i></a></td>
               <td><a href="/admin/contact/delete/{{_id}}"><i class="fa fa-trash text-danger"></i></a></td>
-
+              {{/if}}
             </tr>
             {{/each}}
           </tbody>

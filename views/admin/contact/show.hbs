@@ -39,13 +39,15 @@
             <td>Active</td>
             <td>{{#if data.active}} Yes {{else}}No {{/if}}</td>
           </tr>
+          <tr >
+            {{#if data.active}}
+            <td colspan="2"><a class="btn btn-primary w-100" href="/admin/contact/edit/{{data._id}}">Query Done</a></td>
+            {{else}}
+            <td  colspan="2"><a class="btn btn-danger w-100" href="/admin/contact/delete/{{data._id}}">Delete</a></td>
+           {{/if}}
+          </tr>
         </table>
 
-        <div class="row ">
-          <div class="mb-1 ">
-<a href="/admin/contact">
-            <button type="submit" class="btn btn-primary w-100 p-2">Back</button></a>
-          </div>
         </div>
       </div>
 
