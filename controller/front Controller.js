@@ -1,6 +1,7 @@
 const Testimonial = require("../models/Testimonial");
 const Car = require("../models/Car");
 const Contact = require("../models/Contact");
+const mailer = require("../mailer/index")     // email sender
 
 async function homePage(req, res) {
   try {
@@ -48,12 +49,7 @@ async function testimonialPage(req, res) {
 
 // Contact get or store data
 function contact(req, res) {
-  res.render("contact", {
-    session: req.session,
-    title: "Contact Us",
-    errorMessage: {},
-    data: {},
-    show: false,
+  res.render("contact", { session: req.session, title: "Contact Us", errorMessage: {}, data: {}, show: false,
   });
 }
 
@@ -73,16 +69,58 @@ async function contactStore(req, res) {
         ,
         from: process.env.SMS_SENDER,
         to: req.body.phone.startsWith("+91")?req.body.phone:"+91"+req.body.phone,
-    });
+      });
     console.log(message)
     // End Sms Sender 
-    res.render("contact", {
-      session: req.session,
-      title: "Contact US",
-      errorMessage: {},
-      data: {},
-      show: true,
-    });
+
+    // Email sender from only user 
+      mailer.sendMail({
+        sender:process.env.EMAIL_SENDER,
+        to:req.body.email,
+        subject:"Query Received !!!",
+        text:`Query Received ,Thanks ${req.body.name}, Your query has been Received ,Our Team Will Contact you Soon !! `
+      },(error)=>{
+        if(error)
+          console.log(error);
+      })
+
+    // Email sender from Both User Or Admin
+    mailer.sendMail({
+      sender:process.env.EMAIL_SENDER,
+      to:process.env.EMAIL_SENDER,
+      subject:"Query ",
+      html:`
+          <table border="2px" cellpadding="10px">
+          <tr>
+              <th>Name</td>
+              <td>${req.body.name}</td>
+          </tr>
+           <tr>
+              <th>Email</td>
+              <td>${req.body.email}</td>
+          </tr>
+           <tr>
+              <th>Phone</td>
+              <td>${req.body.phone}</td>
+          </tr>
+           <tr>
+              <th>Subject</td>
+              <td>${req.body.subject}</td>
+          </tr>
+           <tr>
+              <th>Message</td>
+              <td>${req.body.message}</td>
+          </tr>
+          </table>
+      `
+    },(error)=>{
+      if(error)
+        console.log(error);
+        
+    })
+    // end Email sender
+
+    res.render("contact", { session: req.session, title: "Contact US", errorMessage: {}, data: {}, show: true, });
   } catch (error) {
     console.log(error);
     errorMessage = {};
