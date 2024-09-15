@@ -38,7 +38,7 @@ async function bookingStorePage(req,res){
       mailer.sendMail({
         sender:process.env.EMAIL_SENDER,
         to:req.body.email,
-        subject:"Cental Car Booking Confirmed ",
+        subject:"Go Drive Car Booking Confirmed ",
         html:`
              Hello, ${req.body.name}, 
              Your Booking Has Been Confirmed !!!
