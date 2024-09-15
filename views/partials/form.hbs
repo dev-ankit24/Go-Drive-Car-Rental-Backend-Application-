@@ -1,0 +1,80 @@
+<form action="/booking" method="post">
+    <div class="mb-3">
+        <div class="input-group">
+            <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                <span class="fas fa-user"></span><span class="ms-1">Name</span>
+            </div>
+            <input class="form-control {{#if errorMessage.name}} border-danger border-4 {{/if}}"  type="text" name="name" placeholder="Enter Full Name "
+                aria-label="Enter a Location"  value="{{data.name}}">
+        </div>
+       {{!-- {{#if errorMessage.name}}<p class="text-danger">Name Field Is Required</p>{{/if}} --}}
+
+    </div>
+    <div class="row">
+        <div class=" col-md-6 mb-3">
+            <div class="input-group">
+                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                    <span class="fas fa-envelope"></span><span class="ms-1">Email</span>
+                </div>
+                <input class="form-control {{#if errorMessage.email}} border-danger border-3 {{/if}}" type="text" name="email" placeholder="Enter Email Address"
+                    aria-label="Enter a Location"  value="{{data.email}}">
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="input-group">
+                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                    <span class="fas fa-phone"></span><span class="ms-1">Phone</span>
+                </div>
+                <input class="form-control {{#if errorMessage.phone}} border-danger border-3 {{/if}}" type="text" name="phone" placeholder="Enter Phone Number "
+                    aria-label="Enter a Location"  value="{{data.phone}}">
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3">
+
+        <div class="col-12">
+            <div class="input-group">
+                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                    <span class="fas fa-map-marker-alt"></span><span class="ms-1">PickUp Location</span>
+                </div>
+                <input type="text" name="pickUpLocation" class="form-control {{#if errorMessage.pickUpLocation}} border-danger border-3 {{/if}}"  placeholder="Enter a pickup Location"
+                    aria-label="Enter a Location"  value="{{data.pickUpLocation}}">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="input-group">
+                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                    <span class="fas fa-map-marker-alt"></span><span class="ms-1">Dropoff Location</span>
+                </div>
+                <input class="form-control {{#if errorMessage.dropOff}} border-danger border-3 {{/if}}" type="text" name="dropOff" placeholder="Enter a DropOff location"
+                    aria-label="Enter a City or Airport" value="{{data.dropOff}}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <select class="form-select  {{#if errorMessage.carType}} border-danger border-3 {{/if}}" name="carType" aria-label="Default select example">
+                <option selected value="">Select Your Car</option>
+                {{#each cars}}
+                <option value="{{name}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <input type="hidden" name="page" value="{{title}}">
+
+        <div class="col-md-6">
+            <div class="input-group">
+                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                    <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick
+                        Up Date</span>
+                </div>
+                <input class="form-control {{#if errorMessage.pickUpDate}} border-danger border-3 {{/if}}" name="pickUpDate" type="date"  value="{{data.pickUpDate}}">
+
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-light w-100 py-2">Book Now</button>
+        </div>
+    </div>
+</form>

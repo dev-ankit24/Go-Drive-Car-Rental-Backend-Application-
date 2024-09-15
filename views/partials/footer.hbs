@@ -9,9 +9,11 @@
                                 <h4 class="text-white mb-4">About Us</h4>
                                 <p class="text-light" class="mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit.</p>
                             </div>
-                            <div class="position-relative">
-                                <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
-                                <button type="button" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">Subscribe</button>
+                            <div class="position-relative" >
+                               <form action="/subscribeStore" method="post">
+                                <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" name="email" type="text" placeholder="Enter your email">
+                              <a href="/subscribe">  <button type="button" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">Subscribe</button></a>
+                               </form>
                             </div>
                         </div>
                     </div>

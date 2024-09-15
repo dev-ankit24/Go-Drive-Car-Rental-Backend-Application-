@@ -1,0 +1,71 @@
+{{>header}}
+<title>Cental - Car Rent | Admin Testimonials Section</title>
+{{>navbar}}
+{{>hero}}
+<div class="container-fluid my-3">
+  <div class="row">
+    <div class="col-md-3">
+      {{>sidebar}}
+    </div>
+    <div class="col-md-9">
+      <h5 class="bg-primary text-center text-light p-2">User Query </h5>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr>
+            <td>Id</td>
+            <td>{{data._id}}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{{data.name}}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>{{data.email}}</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>{{data.phone}}</td>
+          </tr>
+          <tr>
+            <td>PickUp Location</td>
+            <td>{{data.pickUpLocation}}</td>
+          </tr>
+            <tr>
+            <td>DropOff Location</td>
+            <td>{{data.dropOff}}</td>
+          </tr>
+          <tr>
+            <td>CarType</td>
+            <td>{{data.carType}}</td>
+          </tr>
+          <tr>
+            <td>PickUp Date</td>
+            <td>{{data.pickUpDate}}</td>
+          </tr>
+          {{!-- <tr>
+            <td>Date</td>
+            <td>{{data.date}}</td>
+          </tr> --}}
+          <tr>
+            <td>Active</td>
+            <td>{{#if data.active}} Yes {{else}}No {{/if}}</td>
+          </tr>
+          <tr >
+            {{#if data.active}}
+            <td colspan="2"><a class="btn btn-primary w-100" href="/admin/booking/edit/{{data._id}}">Update Booking Status If Booking Is Completed</a></td>
+            {{else}}
+            <td  colspan="2"><a class="btn btn-danger w-100" href="/admin/booking/delete/{{data._id}}">Delete</a></td>
+           {{/if}}
+          </tr>
+        </table>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{{>footer}}
